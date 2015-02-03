@@ -1,0 +1,892 @@
+﻿<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/x3dom/release/x3dom.css">
+   <script type="text/javascript" src="http://www.x3dom.org/x3dom/release/x3dom.js"></script>
+   <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+   <script type="text/javascript" src="renderer.js"></script>
+</head>
+<body>
+   <div id="console">Activo</div>
+   <div id="contentPane">
+      <x3d height="700px" width="1000px">
+         <scene dopickpass="true" pickmode="idBuf" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+            <viewpoint zfar="-1" znear="-1" centerofrotation="0,0,0" fieldofview="0.785398" position="0 -150 80" orientation="1 0 0 1.1"></viewpoint>
+            <directionallight shadowsplitoffset="0.1" shadowsplitfactor="1" shadowcascades="1" zfar="-1" znear="-1" shadowmapsize="1024" on="true" intensity="1" color="1,1,1" direction="0 50 150"></directionallight>
+            <Transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 -1.5707963267948966">
+               <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                  <appearance sorttype="auto">
+                     <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/sky.jpg&quot;"></ImageTexture>
+                  </appearance>
+                  <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="false" radius="400"></sphere>
+               </shape>
+            </Transform>
+            <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+               <appearance sorttype="auto">
+                  <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 1"></material>
+                  <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cesped.jpg&quot;"></ImageTexture>
+                  <TextureTransform translation="0,0" center="0,0" scale="25 25"></TextureTransform>
+               </appearance>
+               <plane primtype="TRIANGLES " center="0,0,0" subdivision="1,1" lit="true" usegeocache="true" ccw="true" solid="true" size="800 800"></plane>
+            </shape>
+            <transform scaleorientation="0,0,0,0" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" scale="3 3 3">
+               <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 6 0">
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 0 0.5">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support_ground.jpg&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="30 1.8 1.8"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-6 0 10" rotation="0 1 0 -1.1780972450961724">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="20 1 1"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6 0 10" rotation="0 1 0 1.1780972450961724">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="20 1 1"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-1 0 19" rotation="0 1 0 -0.39269908169872414">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="2.7 1 1"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="1 0 19" rotation="0 1 0 0.39269908169872414">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="2.7 1 1"></box>
+                     </shape>
+                  </transform>
+               </transform>
+               <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 -6 0">
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 0 0.5">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support_ground.jpg&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="30 1.8 1.8"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-6 0 10" rotation="0 1 0 -1.1780972450961724">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="20 1 1"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6 0 10" rotation="0 1 0 1.1780972450961724">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="20 1 1"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-1 0 19" rotation="0 1 0 -0.39269908169872414">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="2.7 1 1"></box>
+                     </shape>
+                  </transform>
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="1 0 19" rotation="0 1 0 0.39269908169872414">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_support.png&quot;"></ImageTexture>
+                        </appearance>
+                        <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="2.7 1 1"></box>
+                     </shape>
+                  </transform>
+               </transform>
+               <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 0 19.200000000000003">
+                  <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="animation">
+                     <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                        <appearance sorttype="auto">
+                           <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                        </appearance>
+                        <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.5" height="14"></cylinder>
+                     </shape>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 -4.7 0">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 0.5235987755982988">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413264 0 5.999999999999999" rotation="0 1 0 -0.5235987755982988">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="8.76812408671319 0 8.768124086713188">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 1.0471975511965976">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 10.392304845413264" rotation="0 1 0 -1.0471975511965976">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="3.20935615927126 0 11.977480245984445">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 1.5707963267948966">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="7.347880794884119e-16 0 12" rotation="0 1 0 -1.5707963267948966">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-3.209356159271256 0 11.977480245984447">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 2.0943951023931953">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-5.999999999999997 0 10.392304845413264" rotation="0 1 0 -2.0943951023931953">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-8.768124086713188 0 8.76812408671319">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 2.617993877991494">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413262 0 6.0000000000000036" rotation="0 1 0 -2.617993877991494">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-11.977480245984445 0 3.2093561592712607">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 3.1415926535897927">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-12 0 6.7986466771775755e-15" rotation="0 1 0 -3.1415926535897927">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-11.977480245984449 0 -3.2093561592712523">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413268 0 -5.999999999999993" rotation="0 1 0 -3.6651914291880914">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-8.768124086713195 0 -8.768124086713184">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-6.000000000000005 0 -10.39230484541326" rotation="0 1 0 -4.1887902047863905">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-3.209356159271267 0 -11.977480245984445">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-2.204364238465236e-15 0 -12" rotation="0 1 0 -4.71238898038469">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="3.209356159271252 0 -11.977480245984449">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 -10.392304845413264" rotation="0 1 0 -5.235987755982989">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="8.768124086713188 0 -8.768124086713192">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413266 0 -5.9999999999999964" rotation="0 1 0 -5.759586531581288">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="11.977480245984447 0 -3.2093561592712567">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="12 0 7.718988718447856e-15" rotation="0 1 0 -6.283185307179587">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="11.977480245984445 0 3.2093561592712616">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="0 4.7 0">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 0.5235987755982988">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413264 0 5.999999999999999" rotation="0 1 0 -0.5235987755982988">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="8.76812408671319 0 8.768124086713188">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 1.0471975511965976">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 10.392304845413264" rotation="0 1 0 -1.0471975511965976">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="3.20935615927126 0 11.977480245984445">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 1.5707963267948966">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="7.347880794884119e-16 0 12" rotation="0 1 0 -1.5707963267948966">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-3.209356159271256 0 11.977480245984447">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 2.0943951023931953">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-5.999999999999997 0 10.392304845413264" rotation="0 1 0 -2.0943951023931953">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-8.768124086713188 0 8.76812408671319">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 2.617993877991494">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413262 0 6.0000000000000036" rotation="0 1 0 -2.617993877991494">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-11.977480245984445 0 3.2093561592712607">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" rotation="0 1 0 3.1415926535897927">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5. 0.5" diffusecolor="gray"></material>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="24 0.2 0.2"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-12 0 6.7986466771775755e-15" rotation="0 1 0 -3.1415926535897927">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-11.977480245984449 0 -3.2093561592712523">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413268 0 -5.999999999999993" rotation="0 1 0 -3.6651914291880914">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-8.768124086713195 0 -8.768124086713184">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-6.000000000000005 0 -10.39230484541326" rotation="0 1 0 -4.1887902047863905">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-3.209356159271267 0 -11.977480245984445">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-2.204364238465236e-15 0 -12" rotation="0 1 0 -4.71238898038469">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="3.209356159271252 0 -11.977480245984449">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 -10.392304845413264" rotation="0 1 0 -5.235987755982989">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="8.768124086713188 0 -8.768124086713192">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413266 0 -5.9999999999999964" rotation="0 1 0 -5.759586531581288">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="11.977480245984447 0 -3.2093561592712567">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="12 0 7.718988718447856e-15" rotation="0 1 0 -6.283185307179587">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/noria_beam.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="1 1 6.211657082460498"></box>
+                           </shape>
+                        </transform>
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="11.977480245984445 0 3.2093561592712616">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="red"></material>
+                              </appearance>
+                              <sphere subdivision="24,24" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.7"></sphere>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="12 0 0">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="12 0 0">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_0">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413264 0 5.999999999999999">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413264 0 5.999999999999999">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_1">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 10.392304845413264">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 10.392304845413264">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_2">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="7.347880794884119e-16 0 12">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="7.347880794884119e-16 0 12">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_3">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-5.999999999999997 0 10.392304845413264">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-5.999999999999997 0 10.392304845413264">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_4">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413262 0 6.0000000000000036">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413262 0 6.0000000000000036">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_5">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-12 0 6.7986466771775755e-15">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-12 0 6.7986466771775755e-15">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_6">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413268 0 -5.999999999999993">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-10.392304845413268 0 -5.999999999999993">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_7">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-6.000000000000005 0 -10.39230484541326">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-6.000000000000005 0 -10.39230484541326">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_8">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-2.204364238465236e-15 0 -12">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="-2.204364238465236e-15 0 -12">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_9">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 -10.392304845413264">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="6.000000000000002 0 -10.392304845413264">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_10">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413266 0 -5.9999999999999964">
+                        <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                           <appearance sorttype="auto">
+                              <material specularcolor="0,0,0" shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" diffusecolor="1 1 0"></material>
+                           </appearance>
+                           <cylinder side="true" subdivision="32" top="true" bottom="true" lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" radius="0.1" height="10"></cylinder>
+                        </shape>
+                     </transform>
+                     <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" translation="10.392304845413266 0 -5.9999999999999964">
+                        <transform scaleorientation="0,0,0,0" scale="1,1,1" rotation="0,0,0,0" translation="0,0,0" center="0,0,0" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true" def="cabin_fix_11">
+                           <shape ispickable="true" bboxsize="-1,-1,-1" bboxcenter="0,0,0" render="true">
+                              <appearance sorttype="auto">
+                                 <material shininess="0.2" emissivecolor="0,0,0" ambientintensity="0.2" specularcolor="0.5 0.5 0.5" diffusecolor="1 1 1"></material>
+                                 <ImageTexture hidechildren="true" scale="true" repeatt="true" repeats="true" url="&quot;textures/cabin.jpg&quot;"></ImageTexture>
+                              </appearance>
+                              <box lit="true" usegeocache="true" ccw="true" solid="true" onclick="pickFunction()" size="4 4 3"></box>
+                           </shape>
+                        </transform>
+                     </transform>
+                  </transform>
+               </transform>
+            </transform>
+            <timesensor pausetime="0" resumetime="1" first="true" enabled="true" loop="true" cycleinterval="30" def="pulse_timer" id="time_sensor"></timesensor>
+            <orientationInterpolator keyvalue="0 1 0 0  0 1 0 1.5707963267948966  0 1 0 3.141592653589793  0 1 0 4.71238898038469  0 1 0 6.283185307179586" key="0 0.25 0.5 0.75 1" def="spin"></orientationInterpolator>
+            <orientationInterpolator keyvalue="0 1 0 0  0 1 0 4.71238898038469 0 1 0 3.141592653589793  0 1 0 1.5707963267948966  0 1 0 6.283185307179586" key="0 0.25 0.5 0.75 1" def="spin_fix"></orientationInterpolator>
+            <route tofield="set_fraction" tonode="spin" fromfield="fraction_changed" fromnode="pulse_timer"></route>
+            <route tofield="set_fraction" tonode="spin_fix" fromfield="fraction_changed" fromnode="pulse_timer"></route>
+            <route tofield="set_rotation" tonode="animation" fromfield="value_changed" fromnode="spin"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_0" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_1" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_2" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_3" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_4" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_5" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_6" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_7" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_8" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_9" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_10" fromfield="value_changed" fromnode="spin_fix"></route>
+            <route tofield="set_rotation" tonode="cabin_fix_11" fromfield="value_changed" fromnode="spin_fix"></route>
+         </scene>
+</html>
